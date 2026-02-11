@@ -50,7 +50,7 @@ export default function BrandPage() {
     return (
         <main className="min-h-screen pt-[90px]">
             {/* Header */}
-            <Header variant="brand" />
+            <Header />
 
             {/* Brand Hero Section */}
             <section id="brand-hero" className="relative bg-white pt-16 lg:pt-24 pb-24 overflow-hidden">

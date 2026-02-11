@@ -9,10 +9,18 @@ export default function CreatorPage() {
         <main className="flex flex-col lg:flex-row min-h-screen bg-white">
             {/* Left Section - Form */}
             <div className="w-full lg:w-2/3 p-8 lg:px-20 overflow-y-auto">
-                {/* Logo */}
-                <div className="mb-12">
+                {/* Logo & Back Button */}
+                <div className="mb-12 flex items-center justify-between gap-12">
                     <a href="/">
                         <img src="/assets/images/logo.png" alt="Healthcare Creators Collective" className="h-16 w-auto" />
+                    </a>
+                    <a
+                        href="/"
+                        className="bg-[#D9D9D9] text-[#212236] rounded-[8px] px-4 py-2 text-[14px] whitespace-nowrap font-normal leading-5 hover:opacity-90 transition-opacity flex items-center justify-center gap-[10px]"
+                    >
+                        <img src="/assets/images/icon-arrow-left.svg" alt="" className="w-6 h-6" />
+                        <span className="lg:hidden">Back</span>
+                        <span className="hidden lg:block">Go back</span>
                     </a>
                 </div>
 
