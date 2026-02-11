@@ -26,7 +26,7 @@ export default function Home() {
             <div className="relative z-10 w-full grid lg:grid-cols-2 gap-12 px-4 lg:px-20">
               <div className="flex flex-col justify-center max-w-[640px] py-10 lg:py-16">
                 <h1 className="text-[32px] lg:text-[64px] font-bold leading-[1.2] lg:leading-[1.1] text-[#212236] mb-6 md:mb-8 font-sans">
-                  The home for <br />
+                  The <span className="bg-gradient-to-r from-[#234CD6] to-[#8430E1] bg-clip-text text-transparent">home</span> for <br />
                   healthcare creators.
                 </h1>
                 <p className="text-[16px] lg:text-[18px] font-normal leading-[28px] lg:leading-[32px] text-[#6D6D73] mb-10 md:mb-12 max-w-[540px]">
