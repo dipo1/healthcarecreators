@@ -1,16 +1,16 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FoundersSection from '@/components/FoundersSection';
 
-const fadeInUp = {
+const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
 };
 
-const staggerContainer = {
+const staggerContainer: Variants = {
     hidden: { opacity: 0 },
     visible: {
         opacity: 1,
@@ -21,14 +21,14 @@ const staggerContainer = {
     }
 };
 
-const letterVariant = {
+const letterVariant: Variants = {
     hidden: { opacity: 0, y: 10 },
     visible: { opacity: 1, y: 0 }
 };
 
-const scaleUp = {
+const scaleUp: Variants = {
     hidden: { scale: 0.8, opacity: 0 },
-    visible: { scale: 1, opacity: 1, transition: { duration: 0.5, ease: 'backOut' } }
+    visible: { scale: 1, opacity: 1, transition: { duration: 0.5, ease: 'easeOut' } }
 };
 
 export default function HomeClient() {
