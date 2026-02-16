@@ -31,13 +31,13 @@ export default function Footer() {
                             <a href="mailto:hello@healthcarecreators.co.uk" className="hover:underline">hello@healthcarecreators.co.uk</a>
                         </p>
                         <div className="flex items-center md:justify-end gap-4 text-center">
-                            <a href="https://www.instagram.com/healthcarecreators" className="flex items-center justify-center w-8 h-8 hover:opacity-80 transition-opacity">
+                            <a href="https://www.instagram.com/healthcarecreatorscollective" className="flex items-center justify-center w-8 h-8 hover:opacity-80 transition-opacity">
                                 <img src="/assets/images/social-logo-intagram.svg" alt="Instagram" className="w-full h-auto" />
                             </a>
-                            <a href="https://www.tiktok.com/@healthcarecreators" className="flex items-center justify-center w-8 h-8 hover:opacity-80 transition-opacity">
+                            <a href="https://www.tiktok.com/@healthcarecreatorscollective" className="flex items-center justify-center w-8 h-8 hover:opacity-80 transition-opacity">
                                 <img src="/assets/images/social-logo-tiktok.svg" alt="TikTok" className="w-full h-auto" />
                             </a>
-                            <a href="https://www.linkedin.com/company/healthcarecreators" className="flex items-center justify-center w-8 h-8 hover:opacity-80 transition-opacity">
+                            <a href="https://www.linkedin.com/company/healthcarecreatorscollective" className="flex items-center justify-center w-8 h-8 hover:opacity-80 transition-opacity">
                                 <img src="/assets/images/social-logo-linkedin.svg" alt="LinkedIn" className="w-full h-auto" />
                             </a>
                         </div>
