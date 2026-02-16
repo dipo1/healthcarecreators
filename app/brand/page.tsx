@@ -82,23 +82,16 @@ export default function BrandPage() {
                 <div className="w-full overflow-hidden mt-8 lg:mt-16">
                     <div className="flex w-max animate-infinite-scroll hover:[animation-play-state:paused] gap-6 px-4">
                         {[
+                            { src: "/assets/images/summit-lunch.jpg", height: "h-[320px]" },
+                            { src: "/assets/images/summit-award.jpg", height: "h-[400px]" },
+                            { src: "/assets/images/founder-photo-leya.png", height: "h-[320px]" },
+                            { src: "/assets/images/pharmacist.png", height: "h-[400px]" },
+                            { src: "/assets/images/hospital-doctor.jpg", height: "h-[320px]" },
                             { src: "/assets/images/summit-lunch.jpg", height: "h-[400px]" },
                             { src: "/assets/images/summit-award.jpg", height: "h-[320px]" },
-                            { src: "/assets/images/summit-speech.jpg", height: "h-[400px]" },
-                            { src: "/assets/images/summit-creators.jpg", height: "h-[320px]" },
-                            { src: "/assets/images/doctor.jpg", height: "h-[400px]" },
-                            { src: "/assets/images/summit-audience.jpg", height: "h-[320px]" },
-                            { src: "/assets/images/summit-red-carpet.jpg", height: "h-[400px]" },
-                            { src: "/assets/images/hospital.jpg", height: "h-[320px]" },
-                            // Duplicate for infinite effect
-                            { src: "/assets/images/summit-lunch.jpg", height: "h-[400px]" },
-                            { src: "/assets/images/summit-award.jpg", height: "h-[320px]" },
-                            { src: "/assets/images/summit-speech.jpg", height: "h-[400px]" },
-                            { src: "/assets/images/summit-creators.jpg", height: "h-[320px]" },
-                            { src: "/assets/images/doctor.jpg", height: "h-[400px]" },
-                            { src: "/assets/images/summit-audience.jpg", height: "h-[320px]" },
-                            { src: "/assets/images/summit-red-carpet.jpg", height: "h-[400px]" },
-                            { src: "/assets/images/hospital.jpg", height: "h-[320px]" },
+                            { src: "/assets/images/founder-photo-leya.png", height: "h-[400px]" },
+                            { src: "/assets/images/pharmacist.png", height: "h-[320px]" },
+                            { src: "/assets/images/hospital-doctor.jpg", height: "h-[400px]" },
                         ].map((item, index) => (
                             <div key={index} className={`flex-shrink-0 w-64 lg:w-80 ${item.height} rounded-[12px] overflow-hidden shadow-lg transform transition-transform hover:scale-[1.02] duration-500`}>
                                 <img src={item.src} alt="" className="w-full h-full object-cover" />
