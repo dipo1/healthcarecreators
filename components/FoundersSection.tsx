@@ -1,4 +1,7 @@
+'use client';
+
 import React from 'react';
+import { motion } from 'framer-motion';
 
 interface FoundersSectionProps {
     variant?: 'light' | 'dark';
@@ -33,9 +36,18 @@ const FoundersSection: React.FC<FoundersSectionProps> = ({ variant = 'light' }) 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {/* Leya Card */}
                     <div className="relative aspect-[4/3] rounded-[12px] lg:rounded-[24px] overflow-hidden group shadow-lg">
-                        <img src="/assets/images/founder-photo-leya.png" alt="Leya Luhar" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                        <div className="absolute bottom-0 left-0 p-4 lg:p-8 text-white z-10 text-left">
+                        <motion.img
+                            src="/assets/images/founder-photo-leya.png"
+                            alt="Leya Luhar"
+                            className="w-full h-full object-cover"
+                            initial={{ scale: 1.2 }}
+                            whileInView={{ scale: 1 }}
+                            whileHover={{ scale: 1.05 }}
+                            transition={{ duration: 0.8, ease: "easeOut" }}
+                            viewport={{ once: true }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+                        <div className="absolute bottom-0 left-0 p-4 lg:p-8 text-white z-10 text-left pointer-events-none">
                             <h3 className="text-[16px] lg:text-[18px] font-bold mb-1 lg:mb-2 font-sans">Leya Luhar,</h3>
                             <p className="text-[12px] lg:text-[14px] font-normal opacity-90 font-sans leading-tight">
                                 Final year medical student and founder of OSCE Toolbox
@@ -45,9 +57,18 @@ const FoundersSection: React.FC<FoundersSectionProps> = ({ variant = 'light' }) 
 
                     {/* Dev Card */}
                     <div className="relative aspect-[4/3] rounded-[12px] lg:rounded-[24px] overflow-hidden group shadow-lg">
-                        <img src="/assets/images/founder-photo-dev.png" alt="Dr Dev Gakhar" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                        <div className="absolute bottom-0 left-0 p-4 lg:p-8 text-white z-10 text-left">
+                        <motion.img
+                            src="/assets/images/founder-photo-dev.png"
+                            alt="Dr Dev Gakhar"
+                            className="w-full h-full object-cover"
+                            initial={{ scale: 1.2 }}
+                            whileInView={{ scale: 1 }}
+                            whileHover={{ scale: 1.05 }}
+                            transition={{ duration: 0.8, ease: "easeOut" }}
+                            viewport={{ once: true }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+                        <div className="absolute bottom-0 left-0 p-4 lg:p-8 text-white z-10 text-left pointer-events-none">
                             <h3 className="text-[16px] lg:text-[18px] font-bold mb-1 lg:mb-2 font-sans">Dr Dev Gakhar (Doctor Devify),</h3>
                             <p className="text-[12px] lg:text-[14px] font-normal opacity-90 font-sans leading-tight">
                                 NHS doctor and healthcare content creator.
