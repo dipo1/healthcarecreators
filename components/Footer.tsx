@@ -6,7 +6,7 @@ export default function Footer() {
                     <div className="space-y-6">
                         <img src="/assets/images/logo.png" alt="Healthcare Creators" className="w-[156px] h-[66px] object-contain mx-auto lg:mx-0" />
                         <p className="text-[#666666] text-[16px] lg:text-[18px] font-normal leading-[28px] lg:leading-[32px]">
-                            All rights reserved &copy; 2025 - Healthcare Creators Collective
+                            All rights reserved &copy; {new Date().getFullYear()} - Healthcare Creators Collective
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4">
                             <a
