@@ -54,7 +54,7 @@ export default function HomeClient() {
                     <div className="relative bg-[#F4F4F4] rounded-[20px] lg:rounded-[40px] min-h-[500px] flex items-center mt-0 overflow-visible">
                         {/* Logo icon with Shine effect */}
                         <div className="absolute right-0 top-0 h-full w-full lg:w-1/2 pointer-events-none overflow-hidden rounded-[20px] lg:rounded-[40px]">
-                            <div className="absolute inset-0 bg-no-repeat bg-[bottom_-10%_left_100%] md:bg-right bg-contain opacity-100 z-0"
+                            <div className="absolute inset-0 bg-no-repeat bg-[bottom_-10%_left_100%] sm:bg-[bottom_-50%_left_100%] md:bg-right bg-contain opacity-100 z-0"
                                 style={{ backgroundImage: 'url(/assets/images/logo-icon-mono.png)' }}
                             />
                             <div className="absolute top-0 left-0 w-full h-[200%] bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-y-1/4 animate-shimmer" />
@@ -276,7 +276,7 @@ export default function HomeClient() {
                 <div className="max-w-[1440px] mx-auto px-[20px] lg:px-[100px] relative z-10">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-end">
                         {/* Left Content */}
-                        <div className="flex flex-col max-w-[600px]">
+                        <div className="flex flex-col lg:max-w-[600px]">
                             <h2 className="text-[24px] lg:text-[32px] font-semibold leading-none mb-4 lg:mb-8 font-sans">What We Do</h2>
                             <p className="text-[16px] lg:text-[18px] font-normal leading-[28px] lg:leading-[32px] text-[#D1D1D1] mb-8">
                                 Healthcare professionals are increasingly shaping public conversations about health online. Yet most receive little guidance on how to do this responsibly. HCC exists to provide the structure this space has been missing so creators can be as <span className="font-bold">trusted online as they are offline.</span>
@@ -364,7 +364,7 @@ export default function HomeClient() {
                                         "the chance to help define shared standards for healthcare creators"
                                     ].map((item, idx) => (
                                         <li key={idx} className="flex items-start gap-3 text-[16px] lg:text-[18px] font-normal leading-[28px] lg:leading-[32px] text-[#212236] mb-0">
-                                            <span className="mt-2 w-1.5 h-1.5 bg-[#212236] rounded-full flex-shrink-0" />
+                                            <span className="mt-3.5 w-1.5 h-1.5 bg-[#212236] rounded-full flex-shrink-0" />
                                             {item}
                                         </li>
                                     ))}
@@ -383,7 +383,7 @@ export default function HomeClient() {
                                         "Support clinicians to engage digitally without risking trust or registration"
                                     ].map((item, idx) => (
                                         <li key={idx} className="flex items-start gap-3 text-[16px] lg:text-[18px] font-normal leading-[28px] lg:leading-[32px] text-[#212236] mb-0">
-                                            <span className="mt-2 w-1.5 h-1.5 bg-[#212236] rounded-full flex-shrink-0" />
+                                            <span className="mt-3.5 w-1.5 h-1.5 bg-[#212236] rounded-full flex-shrink-0" />
                                             {item}
                                         </li>
                                     ))}

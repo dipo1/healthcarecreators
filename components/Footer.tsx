@@ -8,7 +8,7 @@ export default function Footer() {
                         <p className="text-[#666666] text-[16px] lg:text-[18px] font-normal leading-[28px] lg:leading-[32px] text-center md:text-left">
                             All rights reserved &copy; {new Date().getFullYear()} - Healthcare Creators Collective
                         </p>
-                        <div className="flex flex-col sm:flex-row gap-4">
+                        <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
                             <a
                                 href="/brand"
                                 className="w-full sm:w-[227.5px] h-[55px] bg-gradient-to-r from-[#234CD6] to-[#8430E1] text-white rounded-[8px] px-4 py-2 text-[14px] font-normal leading-5 hover:opacity-90 transition-opacity flex items-center justify-center gap-[10px]"
