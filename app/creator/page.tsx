@@ -9,7 +9,7 @@ export default function CreatorPage() {
     return (
         <main className="flex flex-col lg:flex-row min-h-screen bg-white">
             {/* Left Section - Form */}
-            <div className="w-full lg:w-2/3 p-8 lg:px-20 overflow-y-auto">
+            <div className="w-full lg:w-2/3 p-4 md:p-8 lg:px-20 overflow-y-auto">
                 {/* Logo & Back Button */}
                 <div className="mb-12 flex items-center justify-between gap-12">
                     <a href="/">

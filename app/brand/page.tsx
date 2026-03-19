@@ -103,7 +103,7 @@ export default function BrandPage() {
 
             {/* What We Do Section - Sticky Pinned */}
             <section ref={processContainerRef} id="brand-process" className="relative h-[300vh] bg-[#0A0D12]">
-                <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
+                <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden py-[35rem] md:p-0">
                     {/* Background Grid Pattern */}
                     <div
                         className="absolute inset-0 opacity-[0.05] pointer-events-none"
@@ -200,13 +200,13 @@ export default function BrandPage() {
 
                     <div className="relative max-w-[1000px] mx-auto space-y-[20vh] pb-[20vh]">
                         {/* Card 01 - Sticky */}
-                        <div className="sticky top-[100px] bg-white border border-gray-100 rounded-[32px] lg:rounded-[48px] p-8 lg:p-12 shadow-xl shadow-gray-200/50 z-10 overflow-hidden transform transition-all duration-500 min-h-[500px]">
-                            <div className="grid grid-cols-1 lg:grid-cols-[150px_1fr] gap-8 items-start mb-8 lg:mb-12">
-                                <span className="text-[64px] lg:text-[80px] font-bold bg-gradient-to-br from-[#234CD6] to-[#8430E1] bg-clip-text text-transparent leading-none font-sans">
+                        <div className="sticky top-[100px] bg-white border border-gray-100 rounded-[16px] md:rounded-[32px] lg:rounded-[48px] p-4 md:p-8 lg:p-12 shadow-xl shadow-gray-200/50 z-10 overflow-hidden transform transition-all duration-500 min-h-[500px]">
+                            <div className="grid grid-cols-1 lg:grid-cols-[150px_1fr] gap-4 md:gap-8 items-start mb-8 lg:mb-12">
+                                <span className="text-[48px] md:text-[64px] lg:text-[80px] font-bold bg-gradient-to-br from-[#234CD6] to-[#8430E1] bg-clip-text text-transparent leading-none font-sans">
                                     01
                                 </span>
                                 <div className="space-y-6 pt-2">
-                                    <h3 className="text-[24px] lg:text-[32px] font-bold text-[#212236] font-sans">
+                                    <h3 className="text-[20px] md:text-[24px] lg:text-[32px] font-bold text-[#212236] font-sans">
                                         Ethical, fair collaborations
                                     </h3>
                                     <div className="border-l-[3px] border-[#234CD6] pl-6">
@@ -216,19 +216,19 @@ export default function BrandPage() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="relative w-full aspect-[21/9] rounded-[24px] overflow-hidden lg:ml-[150px] lg:w-[calc(100%-150px)]">
+                            <div className="relative w-full rounded-[12px] md:rounded-[24px] overflow-hidden lg:ml-[150px] lg:w-[calc(100%-150px)]">
                                 <img src="/assets/images/summit-creators.jpg" alt="Ethical Collaboration" className="w-full h-full object-cover" />
                             </div>
                         </div>
 
                         {/* Card 02 - Sticky */}
-                        <div className="sticky top-[300px] bg-white border border-gray-100 rounded-[32px] lg:rounded-[48px] p-8 lg:p-12 shadow-2xl shadow-gray-300/50 z-20 overflow-hidden transform transition-all duration-500 min-h-[500px]">
-                            <div className="grid grid-cols-1 lg:grid-cols-[150px_1fr] gap-8 items-start mb-8 lg:mb-12">
-                                <span className="text-[64px] lg:text-[80px] font-bold bg-gradient-to-br from-[#234CD6] to-[#8430E1] bg-clip-text text-transparent leading-none font-sans">
+                        <div className="sticky top-[240px] md:top-[300px] bg-white border border-gray-100 rounded-[16px] md:rounded-[32px] lg:rounded-[48px] p-4 md:p-8 lg:p-12 shadow-2xl shadow-gray-300/50 z-20 overflow-hidden transform transition-all duration-500 min-h-[500px]">
+                            <div className="grid grid-cols-1 lg:grid-cols-[150px_1fr] gap-4 md:gap-8 items-start mb-8 lg:mb-12">
+                                <span className="text-[48px] md:text-[64px] lg:text-[80px] font-bold bg-gradient-to-br from-[#234CD6] to-[#8430E1] bg-clip-text text-transparent leading-none font-sans">
                                     02
                                 </span>
                                 <div className="space-y-6 pt-2">
-                                    <h3 className="text-[24px] lg:text-[32px] font-bold text-[#212236] font-sans">
+                                    <h3 className="text-[20px] md:text-[24px] lg:text-[32px] font-bold text-[#212236] font-sans">
                                         Structured, supported projects
                                     </h3>
                                     <div className="border-l-[3px] border-[#234CD6] pl-6">
@@ -238,19 +238,19 @@ export default function BrandPage() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="relative w-full aspect-[21/9] rounded-[24px] overflow-hidden lg:ml-[150px] lg:w-[calc(100%-150px)]">
+                            <div className="relative w-full rounded-[12px] md:rounded-[24px] overflow-hidden lg:ml-[150px] lg:w-[calc(100%-150px)]">
                                 <img src="/assets/images/hospital.jpg" alt="Supported Projects" className="w-full h-full object-cover" />
                             </div>
                         </div>
 
                         {/* Card 03 - Sticky */}
-                        <div className="sticky top-[500px] bg-white border border-gray-100 rounded-[32px] lg:rounded-[48px] p-8 lg:p-12 shadow-2xl shadow-gray-400/50 z-30 overflow-hidden transform transition-all duration-500 min-h-[500px]">
-                            <div className="grid grid-cols-1 lg:grid-cols-[150px_1fr] gap-8 items-start mb-8 lg:mb-12">
-                                <span className="text-[64px] lg:text-[80px] font-bold bg-gradient-to-br from-[#234CD6] to-[#8430E1] bg-clip-text text-transparent leading-none font-sans">
+                        <div className="sticky top-[400px] md:top-[500px] bg-white border border-gray-100 rounded-[16px] md:rounded-[32px] lg:rounded-[48px] p-4 md:p-8 lg:p-12 shadow-2xl shadow-gray-400/50 z-30 overflow-hidden transform transition-all duration-500 min-h-[500px]">
+                            <div className="grid grid-cols-1 lg:grid-cols-[150px_1fr] gap-4 md:gap-8 items-start mb-8 lg:mb-12">
+                                <span className="text-[48px] md:text-[64px] lg:text-[80px] font-bold bg-gradient-to-br from-[#234CD6] to-[#8430E1] bg-clip-text text-transparent leading-none font-sans">
                                     03
                                 </span>
                                 <div className="space-y-6 pt-2">
-                                    <h3 className="text-[24px] lg:text-[32px] font-bold text-[#212236] font-sans">
+                                    <h3 className="text-[20px] md:text-[24px] lg:text-[32px] font-bold text-[#212236] font-sans">
                                         Beyond sponsored posts
                                     </h3>
                                     <div className="border-l-[3px] border-[#234CD6] pl-6">
@@ -262,7 +262,7 @@ export default function BrandPage() {
                             </div>
 
                             {/* Featured Image inside card 03 */}
-                            <div className="relative w-full aspect-[21/9] rounded-[24px] overflow-hidden lg:ml-[150px] lg:w-[calc(100%-150px)]">
+                            <div className="relative w-full rounded-[12px] md:rounded-[24px] overflow-hidden lg:ml-[150px] lg:w-[calc(100%-150px)]">
                                 <img
                                     src="/assets/images/summit-audience.jpg"
                                     alt="Collaborative Event"

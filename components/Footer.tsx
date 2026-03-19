@@ -2,10 +2,10 @@ export default function Footer() {
     return (
         <footer className="bg-white pt-20 pb-10 border-t border-gray-100 font-sans">
             <div className="container mx-auto px-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 align-items-center">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6">
                         <img src="/assets/images/logo.png" alt="Healthcare Creators" className="w-[156px] h-[66px] object-contain mx-auto lg:mx-0" />
-                        <p className="text-[#666666] text-[16px] lg:text-[18px] font-normal leading-[28px] lg:leading-[32px]">
+                        <p className="text-[#666666] text-[16px] lg:text-[18px] font-normal leading-[28px] lg:leading-[32px] text-center md:text-left">
                             All rights reserved &copy; {new Date().getFullYear()} - Healthcare Creators Collective
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4">
@@ -30,7 +30,7 @@ export default function Footer() {
                             Send us an email: <br className="lg:hidden" />
                             <a href="mailto:hello@healthcarecreators.co.uk" className="hover:underline">hello@healthcarecreators.co.uk</a>
                         </p>
-                        <div className="flex items-center md:justify-end gap-4 text-center">
+                        <div className="flex items-center justify-center md:justify-end gap-4 text-center">
                             <a href="https://www.instagram.com/healthcarecreatorscollective" className="flex items-center justify-center w-8 h-8 hover:opacity-80 transition-opacity">
                                 <img src="/assets/images/social-logo-intagram.svg" alt="Instagram" className="w-full h-auto" />
                             </a>

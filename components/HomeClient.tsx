@@ -54,7 +54,7 @@ export default function HomeClient() {
                     <div className="relative bg-[#F4F4F4] rounded-[20px] lg:rounded-[40px] min-h-[500px] flex items-center mt-0 overflow-visible">
                         {/* Logo icon with Shine effect */}
                         <div className="absolute right-0 top-0 h-full w-full lg:w-1/2 pointer-events-none overflow-hidden rounded-[20px] lg:rounded-[40px]">
-                            <div className="absolute inset-0 bg-no-repeat bg-right bg-contain opacity-100 z-0"
+                            <div className="absolute inset-0 bg-no-repeat bg-[bottom_-10%_left_100%] md:bg-right bg-contain opacity-100 z-0"
                                 style={{ backgroundImage: 'url(/assets/images/logo-icon-mono.png)' }}
                             />
                             <div className="absolute top-0 left-0 w-full h-[200%] bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-y-1/4 animate-shimmer" />
@@ -287,31 +287,31 @@ export default function HomeClient() {
                             {/* Features Box */}
                             <div className="border border-white/10 rounded-[8px] lg:rounded-[16px] overflow-hidden mb-12 bg-white/[0.02] backdrop-blur-[100px]">
                                 <div className="grid grid-cols-1 md:grid-cols-2 border-b border-white/10">
-                                    <div className="p-4 lg:p-8 border-r border-white/10">
+                                    <div className="p-4 lg:p-8 border-b md:border-b-0 border-r border-white/10 flex flex-col items-center md:items-start">
                                         <div className="w-10 h-10 bg-[#DDE3F9] rounded-lg flex items-center justify-center mb-4">
                                             <img src="/assets/images/icon-caduceus.svg" alt="" className="w-6 h-6" />
                                         </div>
                                         <h5 className="text-[14px] font-bold leading-[24px] mb-3">Education</h5>
-                                        <p className="text-[14px] font-normal leading-[24px] text-white">
+                                        <p className="text-[14px] font-normal leading-[24px] text-white text-center md:text-left">
                                             Expert-led sessions including professional, legal, and commercial aspects of content creation.
                                         </p>
                                     </div>
-                                    <div className="p-4 lg:p-8">
+                                    <div className="p-4 lg:p-8 flex flex-col items-center md:items-start">
                                         <div className="w-10 h-10 bg-[#DDE3F9] rounded-lg flex items-center justify-center mb-4">
                                             <img src="/assets/images/icon-stethoscope.svg" alt="" className="w-6 h-6" />
                                         </div>
                                         <h5 className="text-[14px] font-bold leading-[24px] mb-3">Community</h5>
-                                        <p className="text-[14px] font-normal leading-[24px] text-white">
+                                        <p className="text-[14px] font-normal leading-[24px] text-white text-center md:text-left">
                                             A trusted space to share experiences, learn from each other, and navigate this work together.
                                         </p>
                                     </div>
                                 </div>
-                                <div className="p-4 lg:p-8">
+                                <div className="p-4 lg:p-8 flex flex-col items-center md:items-start">
                                     <div className="w-10 h-10 bg-[#DDE3F9] rounded-lg flex items-center justify-center mb-4">
                                         <img src="/assets/images/icon-certificate.svg" alt="" className="w-6 h-6" />
                                     </div>
                                     <h5 className="text-[14px] font-bold leading-[24px] mb-3">Opportunities</h5>
-                                    <p className="text-[14px] font-normal leading-[24px] text-white">
+                                    <p className="text-[14px] font-normal leading-[24px] text-white text-center md:text-left">
                                         Thoughtfully introduced collaborations, speaking roles, and projects, with safeguards and clarity in place.
                                     </p>
                                 </div>

@@ -8,7 +8,7 @@ export default function ProfessionalsPage() {
     return (
         <main className="flex flex-col lg:flex-row min-h-screen bg-white">
             {/* Left Section - Form */}
-            <div className="w-full lg:w-2/3 p-8 lg:px-20 overflow-y-auto">
+            <div className="w-full lg:w-2/3 p-4 md:p-8 lg:px-20 overflow-y-auto">
                 {/* Logo & Back Button */}
                 <div className="mb-12 flex items-center justify-between gap-12">
                     <a href="/">
@@ -24,7 +24,7 @@ export default function ProfessionalsPage() {
                     </a>
                 </div>
 
-                <div className="max-w-4xl mx-auto p-6 lg:p-10">
+                <div className="max-w-4xl mx-auto">
                     <div className="mb-8">
                         <h1 className="text-2xl font-bold text-[#212236] mb-2">Healthcare professionals getting started</h1>
                         <p className="text-[#6D6D73]">Learning how to create content responsibly and confidently.</p>
