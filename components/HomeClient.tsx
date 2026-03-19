@@ -184,23 +184,20 @@ export default function HomeClient() {
                             variants={scaleUp}
                             className="flex flex-col rounded-[12px] lg:rounded-[24px] overflow-hidden shadow-sm hover:shadow-md transition-shadow"
                         >
-                            <div className="bg-[#1E1E1E] p-4 lg:p-8 pb-0 h-[450px] flex flex-col relative overflow-hidden">
-                                <h3 className="text-[16px] lg:text-[20px] font-bold text-white mb-4 leading-tight">
-                                    Healthcare professionals <br /> getting started
-                                </h3>
-                                <p className="text-white text-[14px] leading-[24px] mb-8 leading-tight">
-                                    Learning how to create content responsibly and confidently.
-                                </p>
-                                <div className="mt-auto relative w-full h-full">
-                                    <img
-                                        src="/assets/images/hero-leya-alpha.png"
-                                        alt=""
-                                        className="absolute bottom-[-32px] left-1/2 -translate-x-1/2 w-[280px] object-contain"
-                                    />
+                            <div className="bg-[#1E1E1E] p-4 lg:p-8 h-[450px] flex flex-col relative overflow-hidden">
+                                <img src="/assets/images/professionals.jpg" alt="" className="absolute inset-0 w-full h-full object-cover z-0" />
+                                <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-transparent z-0"></div>
+                                <div className="relative z-10">
+                                    <h3 className="text-[16px] lg:text-[20px] font-bold text-white mb-4 leading-tight">
+                                        Healthcare professionals <br /> getting started
+                                    </h3>
+                                    <p className="text-white text-[14px] leading-[24px] mb-8 leading-tight">
+                                        Learning how to create content responsibly and confidently.
+                                    </p>
                                 </div>
                             </div>
                             <div className="bg-white p-6 border-x border-b border-gray-100 rounded-b-[24px]">
-                                <a href="/creator" className="text-[#8430E1] font-semibold text-[16px] flex items-center gap-2 hover:gap-3 transition-all">
+                                <a href="/professionals" className="text-[#8430E1] font-semibold text-[16px] flex items-center gap-2 hover:gap-3 transition-all">
                                     Learn More <span>&rarr;</span>
                                 </a>
                             </div>
@@ -211,19 +208,16 @@ export default function HomeClient() {
                             variants={scaleUp}
                             className="flex flex-col rounded-[12px] lg:rounded-[24px] overflow-hidden shadow-sm hover:shadow-md transition-shadow"
                         >
-                            <div className="bg-[#1E1E1E] p-4 lg:p-8 pb-0 h-[450px] flex flex-col relative overflow-hidden">
-                                <h3 className="text-[16px] lg:text-[20px] font-bold text-white mb-4 leading-tight">
-                                    Healthcare creators already <br /> building
-                                </h3>
-                                <p className="text-white text-[14px] leading-[24px] mb-8 leading-tight">
-                                    Navigating brands, speaking, policy, and professional risk.
-                                </p>
-                                <div className="mt-auto relative w-full h-full">
-                                    <img
-                                        src="/assets/images/hero-leya-alpha.png"
-                                        alt=""
-                                        className="absolute bottom-[-32px] left-1/2 -translate-x-1/2 w-[280px] object-contain"
-                                    />
+                            <div className="bg-[#1E1E1E] p-4 lg:p-8 h-[450px] flex flex-col relative overflow-hidden">
+                                <img src="/assets/images/creators.jpg" alt="" className="absolute inset-0 w-full h-full object-cover z-0" />
+                                <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-transparent z-0"></div>
+                                <div className="relative z-10">
+                                    <h3 className="text-[16px] lg:text-[20px] font-bold text-white mb-4 leading-tight">
+                                        Healthcare creators already <br /> building
+                                    </h3>
+                                    <p className="text-white text-[14px] leading-[24px] mb-8 leading-tight">
+                                        Navigating brands, speaking, policy, and professional risk.
+                                    </p>
                                 </div>
                             </div>
                             <div className="bg-white p-6 border-x border-b border-gray-100 rounded-b-[24px]">
@@ -238,19 +232,16 @@ export default function HomeClient() {
                             variants={scaleUp}
                             className="flex flex-col rounded-[12px] lg:rounded-[24px] overflow-hidden shadow-sm hover:shadow-md transition-shadow"
                         >
-                            <div className="bg-[#1E1E1E] p-4 lg:p-8 pb-0 h-[450px] flex flex-col relative overflow-hidden">
-                                <h3 className="text-[16px] lg:text-[20px] font-bold text-white mb-4 leading-tight">
-                                    Brands and organisations
-                                </h3>
-                                <p className="text-white text-[14px] leading-[24px] mb-8 leading-tight">
-                                    Looking to work with credible, trusted healthcare voices.
-                                </p>
-                                <div className="mt-auto relative w-full h-full">
-                                    <img
-                                        src="/assets/images/hero-leya-alpha.png"
-                                        alt=""
-                                        className="absolute bottom-[-32px] left-1/2 -translate-x-1/2 w-[280px] object-contain"
-                                    />
+                            <div className="bg-[#1E1E1E] p-4 lg:p-8 h-[450px] flex flex-col relative overflow-hidden">
+                                <img src="/assets/images/brands.jpg" alt="" className="absolute inset-0 w-full h-full object-cover z-0" />
+                                <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-transparent z-0"></div>
+                                <div className="relative z-10">
+                                    <h3 className="text-[16px] lg:text-[20px] font-bold text-white mb-4 leading-tight">
+                                        Brands and organisations
+                                    </h3>
+                                    <p className="text-white text-[14px] leading-[24px] mb-8 leading-tight">
+                                        Looking to work with credible, trusted healthcare voices.
+                                    </p>
                                 </div>
                             </div>
                             <div className="bg-white p-6 border-x border-b border-gray-100 rounded-b-[24px]">
