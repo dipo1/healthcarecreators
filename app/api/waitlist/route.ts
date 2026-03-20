@@ -84,7 +84,7 @@ export async function POST(request: Request) {
         const mailOptions = {
             from: `"Form Submission" <${process.env.SMTP_USER}>`,
             replyTo: data.email,
-            to: process.env.CONTACT_EMAIL,
+            to: [process.env.LEYA_EMAIL, process.env.DEV_EMAIL] as string[],
             subject: `New ${type} waitlist submission`,
             text: `New ${type} waitlist submission:\n\n${Object.entries(data).map(([k, v]) => `${k}: ${v}`).join('\n')}`,
             html: htmlContent,
