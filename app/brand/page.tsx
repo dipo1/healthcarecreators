@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FoundersSection from '@/components/FoundersSection';
@@ -12,6 +12,7 @@ export default function BrandPage() {
     const [scrollProgress, setScrollProgress] = useState(0);
     const [alertConfig, setAlertConfig] = useState({ isOpen: false, title: '', message: '', isError: false });
     const [isLoading, setIsLoading] = useState(false);
+    const [isMobile, setIsMobile] = useState<undefined | boolean>(undefined);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -35,7 +36,17 @@ export default function BrandPage() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const getStepContentStyles = (index: number) => {
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 1024);
+        };
+
+        window.addEventListener('resize', handleResize);
+        handleResize();
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    const getStepContentStyles = useCallback((index: number) => {
         const stepPositions = [0.15, 0.5, 0.85];
         const targetPos = stepPositions[index];
         const distance = Math.abs(scrollProgress - targetPos);
@@ -43,14 +54,13 @@ export default function BrandPage() {
         const scale = Math.max(0.9, 1.1 - (distance * 1.2));
         const opacity = Math.max(0.3, 1 - (distance * 1.5));
 
-        const isMobile = typeof window !== 'undefined' ? window.innerWidth < 1024 : false;
         return {
             transform: `scale(${scale})`,
             opacity: opacity,
-            transformOrigin: isMobile ? 'center' : (index === 1 ? 'left center' : 'right center'),
+            transformOrigin: typeof isMobile !== 'undefined' || isMobile ? 'center' : (index === 1 ? 'left center' : 'right center'),
             transition: 'transform 0.2s ease-out, opacity 0.2s ease-out'
         };
-    };
+    }, [scrollProgress, isMobile]);
 
     return (
         <main className="min-h-screen pt-[90px]">
@@ -199,11 +209,11 @@ export default function BrandPage() {
             {/* Why Work With HCC Section */}
             <section id="why-work-with-hcc" className="relative pt-24 lg:pt-32 bg-[#F8F9FA]">
                 <div className="max-w-[1440px] mx-auto px-[20px] lg:px-[100px] relative z-10">
-                    <h2 className="text-[32px] lg:text-[40px] font-bold text-[#212236] mb-16 lg:mb-20 font-sans">
+                    <h2 className="text-[28px] md:text-[32px] lg:text-[40px] font-bold text-[#212236] mb-16 lg:mb-20 font-sans">
                         Why Work With HCC
                     </h2>
 
-                    <div className="relative max-w-[1000px] mx-auto space-y-[20vh] pb-[20vh]">
+                    <div className="relative max-w-[1000px] mx-auto space-y-10 pb-[20vh]">
                         {/* Card 01 - Sticky */}
                         <div className="sticky top-[100px] bg-white border border-gray-100 rounded-[16px] md:rounded-[32px] lg:rounded-[48px] p-4 md:p-8 lg:p-12 shadow-xl shadow-gray-200/50 z-10 overflow-hidden transform transition-all duration-500 min-h-[500px]">
                             <div className="grid grid-cols-1 lg:grid-cols-[150px_1fr] gap-4 md:gap-8 items-start mb-8 lg:mb-12">
@@ -221,13 +231,13 @@ export default function BrandPage() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="relative w-full rounded-[12px] md:rounded-[24px] overflow-hidden lg:ml-[150px] lg:w-[calc(100%-150px)]">
+                            <div className="relative w-full rounded-[12px] md:rounded-[24px] overflow-hidden lg:ml-[150px] lg:w-[calc(100%-150px)] h-[30vh] md:h-[40vh] lg:h-[50vh]">
                                 <img src="/assets/images/summit-creators.jpg" alt="Ethical Collaboration" className="w-full h-full object-cover" />
                             </div>
                         </div>
 
                         {/* Card 02 - Sticky */}
-                        <div className="sticky top-[240px] md:top-[300px] bg-white border border-gray-100 rounded-[16px] md:rounded-[32px] lg:rounded-[48px] p-4 md:p-8 lg:p-12 shadow-2xl shadow-gray-300/50 z-20 overflow-hidden transform transition-all duration-500 min-h-[500px]">
+                        <div className="sticky top-[100px] md:top-[160px] bg-white border border-gray-100 rounded-[16px] md:rounded-[32px] lg:rounded-[48px] p-4 md:p-8 lg:p-12 shadow-2xl shadow-gray-300/50 z-20 overflow-hidden transform transition-all duration-500 min-h-[500px]">
                             <div className="grid grid-cols-1 lg:grid-cols-[150px_1fr] gap-4 md:gap-8 items-start mb-8 lg:mb-12">
                                 <span className="text-[48px] md:text-[64px] lg:text-[80px] font-bold bg-gradient-to-br from-[#234CD6] to-[#8430E1] bg-clip-text text-transparent leading-none font-sans">
                                     02
@@ -243,13 +253,13 @@ export default function BrandPage() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="relative w-full rounded-[12px] md:rounded-[24px] overflow-hidden lg:ml-[150px] lg:w-[calc(100%-150px)]">
+                            <div className="relative w-full rounded-[12px] md:rounded-[24px] overflow-hidden lg:ml-[150px] lg:w-[calc(100%-150px)] h-[30vh] md:h-[40vh] lg:h-[50vh]">
                                 <img src="/assets/images/dev-projects.jpg" alt="Supported Projects" className="w-full h-full object-cover" />
                             </div>
                         </div>
 
                         {/* Card 03 - Sticky */}
-                        <div className="sticky top-[400px] md:top-[500px] bg-white border border-gray-100 rounded-[16px] md:rounded-[32px] lg:rounded-[48px] p-4 md:p-8 lg:p-12 shadow-2xl shadow-gray-400/50 z-30 overflow-hidden transform transition-all duration-500 min-h-[500px]">
+                        <div className="sticky top-[100px] md:top-[220px] bg-white border border-gray-100 rounded-[16px] md:rounded-[32px] lg:rounded-[48px] p-4 md:p-8 lg:p-12 shadow-2xl shadow-gray-400/50 z-30 overflow-hidden transform transition-all duration-500 min-h-[500px]">
                             <div className="grid grid-cols-1 lg:grid-cols-[150px_1fr] gap-4 md:gap-8 items-start mb-8 lg:mb-12">
                                 <span className="text-[48px] md:text-[64px] lg:text-[80px] font-bold bg-gradient-to-br from-[#234CD6] to-[#8430E1] bg-clip-text text-transparent leading-none font-sans">
                                     03
@@ -267,7 +277,7 @@ export default function BrandPage() {
                             </div>
 
                             {/* Featured Image inside card 03 */}
-                            <div className="relative w-full rounded-[12px] md:rounded-[24px] overflow-hidden lg:ml-[150px] lg:w-[calc(100%-150px)]">
+                            <div className="relative w-full rounded-[12px] md:rounded-[24px] overflow-hidden lg:ml-[150px] lg:w-[calc(100%-150px)] h-[30vh] md:h-[40vh] lg:h-[50vh]">
                                 <img
                                     src="/assets/images/summit-audience.jpg"
                                     alt="Collaborative Event"
@@ -285,7 +295,7 @@ export default function BrandPage() {
             <section id="brand-waitlist" className="relative py-24 lg:py-32 bg-[#F8F9FA]">
                 <div className="max-w-[1440px] mx-auto px-[20px] lg:px-[100px]">
                     <div className="max-w-[800px] mx-auto">
-                        <h2 className="text-[32px] lg:text-[40px] font-bold text-[#212236] mb-6 font-sans">
+                        <h2 className="text-[28px] md:text-[32px] lg:text-[40px] font-bold text-[#212236] mb-6 font-sans">
                             Join the brand and<br />partner waitlist
                         </h2>
                         <div className="space-y-4 mb-12">
