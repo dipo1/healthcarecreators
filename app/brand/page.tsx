@@ -43,10 +43,11 @@ export default function BrandPage() {
         const scale = Math.max(0.9, 1.1 - (distance * 1.2));
         const opacity = Math.max(0.3, 1 - (distance * 1.5));
 
+        const isMobile = typeof window !== 'undefined' ? window.innerWidth < 1024 : false;
         return {
             transform: `scale(${scale})`,
             opacity: opacity,
-            transformOrigin: index === 1 ? 'left center' : 'right center',
+            transformOrigin: isMobile ? 'center' : (index === 1 ? 'left center' : 'right center'),
             transition: 'transform 0.2s ease-out, opacity 0.2s ease-out'
         };
     };
@@ -107,7 +108,7 @@ export default function BrandPage() {
 
             {/* What We Do Section - Sticky Pinned */}
             <section ref={processContainerRef} id="brand-process" className="relative h-[300vh] bg-[#0A0D12]">
-                <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden py-[35rem] md:p-0">
+                <div className="sticky top-0 h-auto flex flex-col justify-center py-8 lg:py-20">
                     {/* Background Grid Pattern */}
                     <div
                         className="absolute inset-0 opacity-[0.05] pointer-events-none"
@@ -117,8 +118,8 @@ export default function BrandPage() {
                         }}
                     />
 
-                    <div className="max-w-[1440px] mx-auto px-[20px] lg:px-[100px] relative z-10 w-full">
-                        <div className="max-w-[800px] mx-auto text-center mb-16 lg:mb-24">
+                    <div className="max-w-[1440px] mx-auto px-[20px] relative z-10 w-full">
+                        <div className="max-w-[800px] mx-auto text-center mb-8 lg:mb-16">
                             <div className="inline-block px-4 py-1 rounded-full bg-white/10 border border-white/20 text-[12px] font-medium uppercase tracking-wider mb-6 text-white">
                                 Our Solution
                             </div>
@@ -130,7 +131,7 @@ export default function BrandPage() {
                         {/* Timeline Container */}
                         <div className="relative max-w-[1000px] mx-auto">
                             {/* Vertical Center Line */}
-                            <div className="absolute left-[calc(50%_-_.375rem)] top-2 bottom-0 w-3 h-[calc(100%_-_2rem)] bg-white/10 hidden lg:block rounded-full">
+                            <div className="absolute left-[calc(50%_-_.375rem)] top-4 w-3 h-[calc(100%_-_3rem)] bg-white/10 hidden lg:block rounded-full">
                                 <div
                                     className="w-full bg-white rounded-full absolute top-0 left-0 transition-all duration-100 ease-out"
                                     style={{ height: `${scrollProgress * 100}%` }}
@@ -138,11 +139,11 @@ export default function BrandPage() {
                             </div>
 
                             {/* Process Steps */}
-                            <div className="space-y-12 lg:space-y-20">
+                            <div className="space-y-8 lg:space-y-16">
                                 {/* Step 1 */}
                                 <div className="relative flex flex-col lg:flex-row items-center lg:justify-end group">
                                     <div
-                                        className="w-full lg:w-[45%] text-center lg:text-right lg:pr-16 mb-6 lg:mb-0 mt-6 lg:mt-0"
+                                        className="w-full lg:w-[calc(50%_-_2rem)] text-center lg:text-right lg:pr-16 mb-6 lg:mb-0 mt-6 lg:mt-0"
                                         style={getStepContentStyles(0)}
                                     >
                                         <h3 className="text-[20px] lg:text-[24px] font-bold mb-3 font-sans text-white">We run creator-led campaigns</h3>
@@ -150,20 +151,20 @@ export default function BrandPage() {
                                             Coordinated campaigns delivered by credible healthcare voices.
                                         </p>
                                     </div>
-                                    <div className="relative flex-shrink-0 w-20 h-20 lg:w-24 lg:h-24 flex items-center justify-center order-first lg:order-none bg-white rounded-full">
+                                    <div className="relative flex-shrink-0 w-16 h-16 lg:w-24 lg:h-24 flex items-center justify-center order-first lg:order-none bg-white rounded-full">
                                         <img src="/assets/images/paint-1.png" alt="" className="w-10 h-10 lg:w-14 lg:h-14 object-contain" />
                                     </div>
-                                    <div className="w-full lg:w-[45%] hidden lg:block" />
+                                    <div className="w-full lg:w-[calc(50%_-_2rem)] hidden lg:block" />
                                 </div>
 
                                 {/* Step 2 */}
                                 <div className="relative flex flex-col lg:flex-row items-center group">
-                                    <div className="w-full lg:w-[45%] hidden lg:block" />
-                                    <div className="relative flex-shrink-0 w-20 h-20 lg:w-24 lg:h-24 flex items-center justify-center order-first lg:order-none bg-white rounded-full">
+                                    <div className="w-full lg:w-[calc(50%_-_2rem)] hidden lg:block" />
+                                    <div className="relative flex-shrink-0 w-16 h-16 lg:w-24 lg:h-24 flex items-center justify-center order-first lg:order-none bg-white rounded-full">
                                         <img src="/assets/images/paint-2.png" alt="" className="w-10 h-10 lg:w-14 lg:h-14 object-contain" />
                                     </div>
                                     <div
-                                        className="w-full lg:w-[45%] text-center lg:pl-16 mt-6 lg:mt-0"
+                                        className="w-full lg:w-[calc(50%_-_2rem)] text-center lg:pl-16 mt-6 lg:mt-0"
                                         style={getStepContentStyles(1)}
                                     >
                                         <h3 className="text-[20px] lg:text-[24px] font-bold mb-3 font-sans text-white">We match you with the right healthcare creators</h3>
@@ -176,7 +177,7 @@ export default function BrandPage() {
                                 {/* Step 3 */}
                                 <div className="relative flex flex-col lg:flex-row items-center lg:justify-end group">
                                     <div
-                                        className="w-full lg:w-[45%] text-center lg:text-right lg:pr-16 mb-6 lg:mb-0 mt-6 lg:mt-0"
+                                        className="w-full lg:w-[calc(50%_-_2rem)] text-center lg:text-right lg:pr-16 mb-6 lg:mb-0 mt-6 lg:mt-0"
                                         style={getStepContentStyles(2)}
                                     >
                                         <h3 className="text-[20px] lg:text-[24px] font-bold mb-3 font-sans text-white">We bring healthcare expertise into your projects</h3>
@@ -184,10 +185,10 @@ export default function BrandPage() {
                                             Creators who understand clinical responsibility and public trust.
                                         </p>
                                     </div>
-                                    <div className="relative flex-shrink-0 w-20 h-20 lg:w-24 lg:h-24 flex items-center justify-center order-first lg:order-none bg-white rounded-full">
+                                    <div className="relative flex-shrink-0 w-16 h-16 lg:w-24 lg:h-24 flex items-center justify-center order-first lg:order-none bg-white rounded-full">
                                         <img src="/assets/images/paint-3.png" alt="" className="w-10 h-10 lg:w-14 lg:h-14 object-contain" />
                                     </div>
-                                    <div className="w-full lg:w-[45%] hidden lg:block" />
+                                    <div className="w-full lg:w-[calc(50%_-_2rem)] hidden lg:block" />
                                 </div>
                             </div>
                         </div>
