@@ -243,7 +243,7 @@ export default function BrandPage() {
                                 </div>
                             </div>
                             <div className="relative w-full rounded-[12px] md:rounded-[24px] overflow-hidden lg:ml-[150px] lg:w-[calc(100%-150px)]">
-                                <img src="/assets/images/hospital.jpg" alt="Supported Projects" className="w-full h-full object-cover" />
+                                <img src="/assets/images/dev-projects.jpg" alt="Supported Projects" className="w-full h-full object-cover" />
                             </div>
                         </div>
 
