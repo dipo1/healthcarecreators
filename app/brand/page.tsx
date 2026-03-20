@@ -4,10 +4,12 @@ import { useEffect, useRef, useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FoundersSection from '@/components/FoundersSection';
+import AlertModal from '@/components/AlertModal';
 
 export default function BrandPage() {
     const processContainerRef = useRef<HTMLDivElement>(null);
     const [scrollProgress, setScrollProgress] = useState(0);
+    const [alertConfig, setAlertConfig] = useState({ isOpen: false, title: '', message: '', isError: false });
 
     useEffect(() => {
         const handleScroll = () => {
@@ -296,26 +298,27 @@ export default function BrandPage() {
                             className="space-y-6"
                             onSubmit={async (e) => {
                                 e.preventDefault();
-                                const formData = new FormData(e.currentTarget);
+                                const formData = new FormData(e.target);
                                 const data = Object.fromEntries(formData.entries());
 
                                 try {
                                     const res = await fetch('/api/waitlist', {
                                         method: 'POST',
                                         headers: { 'Content-Type': 'application/json' },
-                                        body: JSON.stringify({ type: 'brand', ...data }),
+                                        body: JSON.stringify(data),
                                     });
                                     if (res.ok) {
-                                        alert('Thank you for joining the brand waitlist!');
-                                        e.currentTarget.reset();
+                                        setAlertConfig({ isOpen: true, title: 'Success!', message: 'Thank you for joining the brand waitlist!', isError: false });
+                                        e.target.reset();
                                     } else {
-                                        alert('Something went wrong. Please try again.');
+                                        setAlertConfig({ isOpen: true, title: 'Error', message: 'Something went wrong. Please try again.', isError: true });
                                     }
                                 } catch (error) {
-                                    alert('Something went wrong. Please try again.');
+                                    setAlertConfig({ isOpen: true, title: 'Error', message: 'Something went wrong. Please try again.', isError: true });
                                 }
                             }}
                         >
+                            <input type="hidden" name="type" value="brand" />
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="space-y-2">
                                     <label className="text-[14px] font-bold text-[#212236] font-sans">First Name</label>
@@ -420,6 +423,14 @@ export default function BrandPage() {
             </section>
 
             <Footer />
+
+            <AlertModal 
+                isOpen={alertConfig.isOpen} 
+                onClose={() => setAlertConfig(prev => ({ ...prev, isOpen: false }))} 
+                title={alertConfig.title} 
+                message={alertConfig.message} 
+                isError={alertConfig.isError} 
+            />
         </main>
     );
 }

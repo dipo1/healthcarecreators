@@ -1,9 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
+import AlertModal from '@/components/AlertModal';
 
 export default function ProfessionalsPage() {
     const [role, setRole] = useState('');
+    const [alertConfig, setAlertConfig] = useState({ isOpen: false, title: '', message: '', isError: false });
 
     return (
         <main className="flex flex-col lg:flex-row min-h-screen bg-white">
@@ -33,27 +35,28 @@ export default function ProfessionalsPage() {
                         className="space-y-6"
                         onSubmit={async (e) => {
                             e.preventDefault();
-                            const formData = new FormData(e.currentTarget);
+                            const formData = new FormData(e.target);
                             const data = Object.fromEntries(formData.entries());
 
                             try {
                                 const res = await fetch('/api/waitlist', {
                                     method: 'POST',
                                     headers: { 'Content-Type': 'application/json' },
-                                    body: JSON.stringify({ type: 'professional', ...data }),
+                                    body: JSON.stringify(data),
                                 });
                                 if (res.ok) {
-                                    alert('Thank you for joining!');
-                                    e.currentTarget.reset();
+                                    setAlertConfig({ isOpen: true, title: 'Success!', message: 'Thank you for joining!', isError: false });
+                                    e.target.reset();
                                     setRole('');
                                 } else {
-                                    alert('Something went wrong. Please try again.');
+                                    setAlertConfig({ isOpen: true, title: 'Error', message: 'Something went wrong. Please try again.', isError: true });
                                 }
                             } catch (error) {
-                                alert('Something went wrong. Please try again.');
+                                setAlertConfig({ isOpen: true, title: 'Error', message: 'Something went wrong. Please try again.', isError: true });
                             }
                         }}
                     >
+                        <input type="hidden" name="type" value="professional" />
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-2">
                                 <label className="text-[14px] font-bold text-[#212236]">First Name</label>
@@ -164,6 +167,14 @@ export default function ProfessionalsPage() {
                     </div>
                 </div>
             </div>
+
+            <AlertModal 
+                isOpen={alertConfig.isOpen} 
+                onClose={() => setAlertConfig(prev => ({ ...prev, isOpen: false }))} 
+                title={alertConfig.title} 
+                message={alertConfig.message} 
+                isError={alertConfig.isError} 
+            />
         </main>
     );
 }
