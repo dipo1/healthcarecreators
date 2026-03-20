@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body className={`${lexend.variable} antialiased font-sans overflow-x-hidden`}>
         {children}
       </body>

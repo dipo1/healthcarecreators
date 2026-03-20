@@ -119,11 +119,11 @@ export default function HomeClient() {
                                         <img src="/assets/images/icon-arrow-up-right-light.svg" alt="" className="w-3 h-3" />
                                     </a>
                                     <a
-                                        href="/creator"
+                                        href="#what-we-do"
                                         className="w-full sm:w-[227.5px] h-[55px] bg-[#D9D9D9] text-[#212236] rounded-[8px] px-4 py-2 text-[14px] font-normal leading-5 hover:bg-gray-300 transition-colors flex items-center justify-center gap-[10px]"
                                     >
                                         <span>I am a creator</span>
-                                        <img src="/assets/images/icon-arrow-up-right.svg" alt="" className="w-3 h-3" />
+                                        <img src="/assets/images/icon-arrow-up-right.svg" alt="" className="w-3 h-3 rotate-135" />
                                     </a>
                                 </motion.div>
                             </div>
