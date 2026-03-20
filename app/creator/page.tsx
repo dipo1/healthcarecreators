@@ -2,11 +2,13 @@
 
 import React, { useState } from 'react';
 import AlertModal from '@/components/AlertModal';
+import Spinner from '@/components/Spinner';
 
 export default function CreatorPage() {
     const [reason, setReason] = useState('');
     const [role, setRole] = useState('');
     const [alertConfig, setAlertConfig] = useState({ isOpen: false, title: '', message: '', isError: false });
+    const [isLoading, setIsLoading] = useState(false);
 
     return (
         <main className="flex flex-col lg:flex-row min-h-screen bg-white">
@@ -32,10 +34,11 @@ export default function CreatorPage() {
                         className="space-y-6"
                         onSubmit={async (e) => {
                             e.preventDefault();
-                            const formData = new FormData(e.target);
+                            const formData = new FormData(e.target as HTMLFormElement);
                             const data = Object.fromEntries(formData.entries());
                             data.reason = reason;
 
+                            setIsLoading(true);
                             try {
                                 const res = await fetch('/api/waitlist', {
                                     method: 'POST',
@@ -44,13 +47,15 @@ export default function CreatorPage() {
                                 });
                                 if (res.ok) {
                                     setAlertConfig({ isOpen: true, title: 'Success!', message: 'Thank you for joining the creator waitlist!', isError: false });
-                                    e.target.reset();
+                                    (e.target as HTMLFormElement).reset();
                                     setReason('');
                                 } else {
                                     setAlertConfig({ isOpen: true, title: 'Error', message: 'Something went wrong. Please try again.', isError: true });
                                 }
                             } catch (error) {
                                 setAlertConfig({ isOpen: true, title: 'Error', message: 'Something went wrong. Please try again.', isError: true });
+                            } finally {
+                                setIsLoading(false);
                             }
                         }}
                     >
@@ -242,9 +247,11 @@ export default function CreatorPage() {
 
                         <button
                             type="submit"
-                            className="w-full h-[60px] bg-gradient-to-r from-[#234CD6] to-[#8430E1] text-white rounded-[12px] text-[16px] font-semibold hover:opacity-90 transition-all shadow-lg shadow-purple-200 mt-4 active:scale-[0.98]"
+                            disabled={isLoading}
+                            className="w-full h-[60px] bg-gradient-to-r from-[#234CD6] to-[#8430E1] text-white rounded-[12px] text-[16px] font-semibold hover:opacity-90 transition-all shadow-lg shadow-purple-200 mt-4 active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                         >
-                            Join creator waitlist
+                            {isLoading && <Spinner />}
+                            {isLoading ? 'Sending...' : 'Join creator waitlist'}
                         </button>
                     </form>
                 </div>
