@@ -28,16 +28,16 @@ export default function Footer() {
                         <h3 className="font-bold text-[28px] lg:text-[32px] leading-none mb-4">Contact</h3>
                         <p className="text-[#666666] mb-4 text-[16px] lg:text-[18px] font-normal leading-[28px] lg:leading-[32px]">
                             Send us an email: <br className="lg:hidden" />
-                            <a href="mailto:hello@healthcarecreators.co.uk" className="hover:underline">hello@healthcarecreators.co.uk</a>
+                            <a href={`mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL}`} className="hover:underline">{process.env.NEXT_PUBLIC_CONTACT_EMAIL}</a>
                         </p>
                         <div className="flex items-center justify-center md:justify-end gap-4 text-center">
-                            <a href="https://www.instagram.com/healthcarecreatorscollective" className="flex items-center justify-center w-8 h-8 hover:opacity-80 transition-opacity">
+                            <a href={process.env.NEXT_PUBLIC_INSTAGRAM_LINK} className="flex items-center justify-center w-8 h-8 hover:opacity-80 transition-opacity">
                                 <img src="/assets/images/social-logo-intagram.svg" alt="Instagram" className="w-full h-auto" />
                             </a>
-                            <a href="https://www.tiktok.com/@healthcarecreators" className="flex items-center justify-center w-8 h-8 hover:opacity-80 transition-opacity">
+                            <a href={process.env.NEXT_PUBLIC_TIKTOK_LINK} className="flex items-center justify-center w-8 h-8 hover:opacity-80 transition-opacity">
                                 <img src="/assets/images/social-logo-tiktok.svg" alt="TikTok" className="w-full h-auto" />
                             </a>
-                            <a href="https://www.linkedin.com/company/the-healthcare-creators-collective" className="flex items-center justify-center w-8 h-8 hover:opacity-80 transition-opacity">
+                            <a href={process.env.NEXT_PUBLIC_LINKEDIN_LINK} className="flex items-center justify-center w-8 h-8 hover:opacity-80 transition-opacity">
                                 <img src="/assets/images/social-logo-linkedin.svg" alt="LinkedIn" className="w-full h-auto" />
                             </a>
                         </div>

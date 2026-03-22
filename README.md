@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Healthcare Creators Collective (HCC)
 
-## Getting Started
+A modern Next.js platform designed for the Healthcare Creators Collective. This application features a robust lead management system with integrated Google OAuth for email delivery.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Lead Management**: Waitlist data is dual-persisted to a local `waitlist.json` and sent via email.
+- **Dynamic Mailer**: Supports both SMTP (local/production) and Gmail API (OAuth2) for high deliverability.
+- **Google OAuth Integration**: Securely authenticate and send mail using official Google APIs.
+- **Privacy First**: Support for `recipientPrivacy` (BCC) on all bulk emails.
+- **Mobile Responsive**: Built with standard Next.js components and Tailwind CSS.
+- **Vercel Optimized**: Resilient filesystem handling for serverless environments.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠 Setup & Environment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create a `.env.local` file in the root directory with the following variables:
 
-## Learn More
+### Core Configuration
+- `NEXT_PUBLIC_BASE_URL`: The base URL of your application (e.g., `http://localhost:3000`).
+- `ADMIN_EMAILS`: Comma-separated list of admin email addresses for notifications.
 
-To learn more about Next.js, take a look at the following resources:
+### SMTP (Used in Production)
+- `SMTP_HOST`: Your SMTP server hostname (or `127.0.0.1` for local testing).
+- `SMTP_PORT`: Port (e.g., `1025` for MailHog, `587` for secure).
+- `SMTP_SECURE`: `true` or `false`.
+- `SMTP_USER`: SMTP username.
+- `SMTP_PASS`: SMTP password.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Google OAuth2 (Used in Development)
+- `GOOGLE_CLIENT_ID`: From Google Cloud Console.
+- `GOOGLE_CLIENT_SECRET`: From Google Cloud Console.
+- `GOOGLE_REDIRECT_URI`: Usually `http://localhost:3000/api/auth/google`.
+- `GOOGLE_TOKEN_PATH`: Path to save the token (`google-token.json`).
+- `GOOGLE_EMAIL`: The authenticated gmail address.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Branding & Socials
+- `NEXT_PUBLIC_CONTACT_EMAIL`: The main contact email displayed in the footer.
+- `NEXT_PUBLIC_INSTAGRAM_LINK`: URL to Instagram profile.
+- `NEXT_PUBLIC_TIKTOK_LINK`: URL to TikTok profile.
+- `NEXT_PUBLIC_LINKEDIN_LINK`: URL to LinkedIn company page.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🔐 Google API Authentication
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+To enable the Gmail API mailer, you must authenticate once:
+
+1.  Start the development server (`npm run dev`).
+2.  Navigate to: `http://localhost:3000/api/auth/google?secret=secret`
+3.  Sign in with your Google account and grant permissions.
+4.  A `google-token.json` file will be generated automatically in your root folder.
+
+---
+
+## 📂 Data Storage
+
+- **Local Storage**: Waitlist signups are appended to `waitlist.json` in the root (for dev) or `/tmp/waitlist.json` (for Vercel).
+- **Mailing Logic**:
+  - In **Development**: Uses the Gmail API for high-fidelity testing.
+  - In **Production**: Uses standard SMTP for stable bulk delivery.
+
+---
+
+## 🛠 Tech Stack
+
+- **Framework**: [Next.js](https://nextjs.org) (App Router)
+- **Email**: [Nodemailer](https://nodemailer.com) & [Google APIs](https://www.npmjs.com/package/googleapis)
+- **Styling**: Tailwind CSS
+- **Deployment**: [Vercel](https://vercel.com)
