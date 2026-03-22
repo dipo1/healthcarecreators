@@ -1,4 +1,4 @@
-import { google } from 'googleapis';
+import { OAuth2Client } from 'google-auth-library';
 import fs from 'fs/promises';
 import path from 'path';
 
@@ -12,7 +12,7 @@ export const createOAuth2Client = () => {
         throw new Error('Google OAuth credentials are missing in environment variables.');
     }
 
-    return new google.auth.OAuth2(
+    return new OAuth2Client(
         CLIENT_ID,
         CLIENT_SECRET,
         REDIRECT_URI
@@ -88,3 +88,4 @@ export const getAuthenticatedClient = async () => {
         throw error;
     }
 };
+

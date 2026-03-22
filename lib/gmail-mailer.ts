@@ -1,4 +1,4 @@
-import { google } from 'googleapis';
+import { gmail } from '@googleapis/gmail';
 import { getAuthenticatedClient } from './google-auth';
 
 interface SendGmailOptions {
@@ -13,7 +13,7 @@ interface SendGmailOptions {
 
 export async function sendGmail({ sender, recipient, subject, html, text, recipientPrivacy, replyTo }: SendGmailOptions) {
     const auth = await getAuthenticatedClient();
-    const gmail = google.gmail({ version: 'v1', auth });
+    const gmailClient = gmail({ version: 'v1', auth });
 
     sender ??= process.env.GOOGLE_EMAIL;
     const from = `HCC <${sender}>`;
@@ -61,7 +61,7 @@ export async function sendGmail({ sender, recipient, subject, html, text, recipi
         .replace(/=+$/, '');
 
     try {
-        const response = await gmail.users.messages.send({
+        const response = await gmailClient.users.messages.send({
             userId: 'me',
             requestBody: {
                 raw: encodedMessage,
@@ -73,3 +73,4 @@ export async function sendGmail({ sender, recipient, subject, html, text, recipi
         throw error;
     }
 }
+

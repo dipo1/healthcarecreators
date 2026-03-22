@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # 1. Load variables
 if [ -f .env.production ]; then
     set -a
