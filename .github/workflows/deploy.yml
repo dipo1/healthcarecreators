@@ -1,4 +1,4 @@
-name: Deploy to DigitalOcean
+name: Deploy to Production
 
 on:
   push:
@@ -17,5 +17,24 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
+            set -e
+
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
             cd /var/www/hcc
-            ./deploy.sh
+
+            if [ -f .env.production ]; then
+                set -a
+                source .env.production
+                set +a
+            else
+                echo "Error: .env.production not found"
+                exit 1
+            fi
+
+            npm install
+            rm -rf .next
+            npm run build
+
+            pm2 restart hcc --update-env
