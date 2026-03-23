@@ -12,6 +12,8 @@ export default function BrandPage() {
     const [scrollProgress, setScrollProgress] = useState(0);
     const [alertConfig, setAlertConfig] = useState({ isOpen: false, title: '', message: '', isError: false });
     const [isLoading, setIsLoading] = useState(false);
+    const [sector, setSector] = useState('');
+    const [earlyInterest, setEarlyInterest] = useState('');
     const [isMobile, setIsMobile] = useState<undefined | boolean>(undefined);
 
     useEffect(() => {
@@ -324,6 +326,8 @@ export default function BrandPage() {
                                     if (res.ok) {
                                         setAlertConfig({ isOpen: true, title: 'Success!', message: 'Thank you for joining the brand waitlist!', isError: false });
                                         (e.target as HTMLFormElement).reset();
+                                        setSector('');
+                                        setEarlyInterest('');
                                     } else {
                                         setAlertConfig({ isOpen: true, title: 'Error', message: 'Something went wrong. Please try again.', isError: true });
                                     }
@@ -397,14 +401,15 @@ export default function BrandPage() {
                                         <select
                                             name="sector"
                                             required
-                                            defaultValue=""
-                                            className="w-full h-[56px] px-4 rounded-[12px] border border-gray-100 bg-white focus:outline-none focus:border-[#8430E1] transition-colors text-[#212236]"
+                                            value={sector}
+                                            onChange={(e) => setSector(e.target.value)}
+                                            className={`w-full h-[56px] px-4 rounded-[12px] border border-gray-100 bg-white focus:outline-none focus:border-[#8430E1] transition-colors ${sector === '' ? 'text-gray-400' : 'text-[#212236]'}`}
                                         >
                                             <option value="" disabled>Skincare</option>
-                                            <option value="Pharmaceuticals">Pharmaceuticals</option>
-                                            <option value="Public Health">Public Health</option>
-                                            <option value="MedTech">MedTech</option>
-                                            <option value="Other">Other</option>
+                                            <option value="Pharmaceuticals" className="text-[#212236]" style={{ color: '#212236' }}>Pharmaceuticals</option>
+                                            <option value="Public Health" className="text-[#212236]" style={{ color: '#212236' }}>Public Health</option>
+                                            <option value="MedTech" className="text-[#212236]" style={{ color: '#212236' }}>MedTech</option>
+                                            <option value="Other" className="text-[#212236]" style={{ color: '#212236' }}>Other</option>
                                         </select>
                                     </div>
                                 </div>
@@ -416,13 +421,14 @@ export default function BrandPage() {
                                     <select
                                         name="earlyInterest"
                                         required
-                                        defaultValue=""
-                                        className="w-full h-[56px] px-4 rounded-[12px] border border-gray-100 bg-white focus:outline-none focus:border-[#8430E1] transition-colors text-[#212236]"
+                                        value={earlyInterest}
+                                        onChange={(e) => setEarlyInterest(e.target.value)}
+                                        className={`w-full h-[56px] px-4 rounded-[12px] border border-gray-100 bg-white focus:outline-none focus:border-[#8430E1] transition-colors ${earlyInterest === '' ? 'text-gray-400' : 'text-[#212236]'}`}
                                     >
                                         <option value="" disabled>Yes</option>
-                                        <option value="Yes">Yes</option>
-                                        <option value="No">No</option>
-                                        <option value="Maybe later">Maybe later</option>
+                                        <option value="Yes" className="text-[#212236]" style={{ color: '#212236' }}>Yes</option>
+                                        <option value="No" className="text-[#212236]" style={{ color: '#212236' }}>No</option>
+                                        <option value="Maybe later" className="text-[#212236]" style={{ color: '#212236' }}>Maybe later</option>
                                     </select>
                                 </div>
                             </div>

@@ -7,6 +7,8 @@ import Spinner from '@/components/Spinner';
 export default function CreatorPage() {
     const [reason, setReason] = useState('');
     const [role, setRole] = useState('');
+    const [primaryPlatform, setPrimaryPlatform] = useState('');
+    const [secondaryPlatform, setSecondaryPlatform] = useState('');
     const [alertConfig, setAlertConfig] = useState({ isOpen: false, title: '', message: '', isError: false });
     const [isLoading, setIsLoading] = useState(false);
 
@@ -49,6 +51,9 @@ export default function CreatorPage() {
                                     setAlertConfig({ isOpen: true, title: 'Success!', message: 'Thank you for joining the creator waitlist!', isError: false });
                                     (e.target as HTMLFormElement).reset();
                                     setReason('');
+                                    setRole('');
+                                    setPrimaryPlatform('');
+                                    setSecondaryPlatform('');
                                 } else {
                                     setAlertConfig({ isOpen: true, title: 'Error', message: 'Something went wrong. Please try again.', isError: true });
                                 }
@@ -102,21 +107,21 @@ export default function CreatorPage() {
                                     required
                                     value={role}
                                     onChange={(e) => setRole(e.target.value)}
-                                    className="w-full h-[56px] px-4 rounded-[12px] border border-gray-200 bg-white focus:outline-none focus:border-[#8430E1] appearance-none transition-colors text-[#212236]"
+                                    className={`w-full h-[56px] px-4 rounded-[12px] border border-gray-200 bg-white focus:outline-none focus:border-[#8430E1] appearance-none transition-colors ${role === '' ? 'text-gray-400' : 'text-[#212236]'}`}
                                 >
                                     <option value="" disabled>Select your role</option>
-                                    <option value="Doctor">Doctor</option>
-                                    <option value="Pharmacist">Pharmacist</option>
-                                    <option value="Nurse">Nurse</option>
-                                    <option value="Dentist">Dentist</option>
-                                    <option value="Physiotherapist">Physiotherapist</option>
-                                    <option value="Midwife">Midwife</option>
-                                    <option value="Dietitian">Dietitian</option>
-                                    <option value="Optometrist">Optometrist</option>
-                                    <option value="Student">Student</option>
-                                    <option value="Paramedic">Paramedic</option>
-                                    <option value="Psychologist">Psychologist</option>
-                                    <option value="Other">Other</option>
+                                    <option value="Doctor" className="text-[#212236]" style={{ color: '#212236' }}>Doctor</option>
+                                    <option value="Pharmacist" className="text-[#212236]" style={{ color: '#212236' }}>Pharmacist</option>
+                                    <option value="Nurse" className="text-[#212236]" style={{ color: '#212236' }}>Nurse</option>
+                                    <option value="Dentist" className="text-[#212236]" style={{ color: '#212236' }}>Dentist</option>
+                                    <option value="Physiotherapist" className="text-[#212236]" style={{ color: '#212236' }}>Physiotherapist</option>
+                                    <option value="Midwife" className="text-[#212236]" style={{ color: '#212236' }}>Midwife</option>
+                                    <option value="Dietitian" className="text-[#212236]" style={{ color: '#212236' }}>Dietitian</option>
+                                    <option value="Optometrist" className="text-[#212236]" style={{ color: '#212236' }}>Optometrist</option>
+                                    <option value="Student" className="text-[#212236]" style={{ color: '#212236' }}>Student</option>
+                                    <option value="Paramedic" className="text-[#212236]" style={{ color: '#212236' }}>Paramedic</option>
+                                    <option value="Psychologist" className="text-[#212236]" style={{ color: '#212236' }}>Psychologist</option>
+                                    <option value="Other" className="text-[#212236]" style={{ color: '#212236' }}>Other</option>
                                 </select>
                                 <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
                                     <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-40">
@@ -146,15 +151,16 @@ export default function CreatorPage() {
                                     <select
                                         name="primaryPlatform"
                                         required
-                                        defaultValue=""
-                                        className="w-full h-[56px] px-4 rounded-[12px] border border-gray-200 bg-white focus:outline-none focus:border-[#8430E1] appearance-none transition-colors text-[#212236]"
+                                        value={primaryPlatform}
+                                        onChange={(e) => setPrimaryPlatform(e.target.value)}
+                                        className={`w-full h-[56px] px-4 rounded-[12px] border border-gray-200 bg-white focus:outline-none focus:border-[#8430E1] appearance-none transition-colors ${primaryPlatform === '' ? 'text-gray-400' : 'text-[#212236]'}`}
                                     >
                                         <option value="" disabled>eg. TikTok</option>
-                                        <option value="TikTok">TikTok</option>
-                                        <option value="Instagram">Instagram</option>
-                                        <option value="YouTube">YouTube</option>
-                                        <option value="LinkedIn">LinkedIn</option>
-                                        <option value="X (Twitter)">X (Twitter)</option>
+                                        <option value="TikTok" className="text-[#212236]" style={{ color: '#212236' }}>TikTok</option>
+                                        <option value="Instagram" className="text-[#212236]" style={{ color: '#212236' }}>Instagram</option>
+                                        <option value="YouTube" className="text-[#212236]" style={{ color: '#212236' }}>YouTube</option>
+                                        <option value="LinkedIn" className="text-[#212236]" style={{ color: '#212236' }}>LinkedIn</option>
+                                        <option value="X (Twitter)" className="text-[#212236]" style={{ color: '#212236' }}>X (Twitter)</option>
                                     </select>
                                     <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
                                         <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-40">
@@ -192,15 +198,16 @@ export default function CreatorPage() {
                                 <div className="relative">
                                     <select
                                         name="secondaryPlatform"
-                                        defaultValue=""
-                                        className="w-full h-[56px] px-4 rounded-[12px] border border-gray-200 bg-white focus:outline-none focus:border-[#8430E1] appearance-none transition-colors text-[#212236]"
+                                        value={secondaryPlatform}
+                                        onChange={(e) => setSecondaryPlatform(e.target.value)}
+                                        className={`w-full h-[56px] px-4 rounded-[12px] border border-gray-200 bg-white focus:outline-none focus:border-[#8430E1] appearance-none transition-colors ${secondaryPlatform === '' ? 'text-gray-400' : 'text-[#212236]'}`}
                                     >
                                         <option value="" disabled>eg. Instagram</option>
-                                        <option value="TikTok">TikTok</option>
-                                        <option value="Instagram">Instagram</option>
-                                        <option value="YouTube">YouTube</option>
-                                        <option value="LinkedIn">LinkedIn</option>
-                                        <option value="X (Twitter)">X (Twitter)</option>
+                                        <option value="TikTok" className="text-[#212236]" style={{ color: '#212236' }}>TikTok</option>
+                                        <option value="Instagram" className="text-[#212236]" style={{ color: '#212236' }}>Instagram</option>
+                                        <option value="YouTube" className="text-[#212236]" style={{ color: '#212236' }}>YouTube</option>
+                                        <option value="LinkedIn" className="text-[#212236]" style={{ color: '#212236' }}>LinkedIn</option>
+                                        <option value="X (Twitter)" className="text-[#212236]" style={{ color: '#212236' }}>X (Twitter)</option>
                                     </select>
                                     <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
                                         <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-40">
