@@ -362,15 +362,27 @@ export default function BrandPage() {
                                 </div>
                             </div>
 
-                            <div className="space-y-2">
-                                <label className="text-[14px] font-bold text-[#212236] font-sans">Work Email</label>
-                                <input
-                                    type="email"
-                                    name="email"
-                                    required
-                                    placeholder="JohnDoe@gmail.com"
-                                    className="w-full h-[56px] px-4 rounded-[12px] border border-gray-200 bg-white focus:outline-none focus:border-[#8430E1] transition-colors text-[#212236] placeholder:text-gray-300"
-                                />
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div className="space-y-2">
+                                    <label className="text-[14px] font-bold text-[#212236] font-sans">Work Email</label>
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        required
+                                        placeholder="JohnDoe@gmail.com"
+                                        className="w-full h-[56px] px-4 rounded-[12px] border border-gray-200 bg-white focus:outline-none focus:border-[#8430E1] transition-colors text-[#212236] placeholder:text-gray-300"
+                                    />
+                                </div>
+                                <div className="space-y-2">
+                                    <label className="text-[14px] font-bold text-[#212236] font-sans">Phone Number</label>
+                                    <input
+                                        type="tel"
+                                        name="phoneNumber"
+                                        required
+                                        placeholder="+44 7700 900000"
+                                        className="w-full h-[56px] px-4 rounded-[12px] border border-gray-200 bg-white focus:outline-none focus:border-[#8430E1] transition-colors text-[#212236] placeholder:text-gray-300"
+                                    />
+                                </div>
                             </div>
 
                             <div className="space-y-2">

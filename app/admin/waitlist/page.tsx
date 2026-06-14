@@ -8,16 +8,18 @@ export const metadata: Metadata = {
   description: 'Administrative view for waitlist submissions.',
 };
 
+export const dynamic = 'force-dynamic';
+
 export default async function AdminWaitlistPage() {
   let submissions = [];
   const adminPassword = process.env.ADMIN_PASSWORD || 'hcc-admin-access';
-  
+
   try {
     const WAITLIST_DIR = !!process.env.VERCEL ? '/tmp' : process.cwd();
     const WAITLIST_PATH = path.join(WAITLIST_DIR, 'waitlist.json');
     const content = await fs.readFile(WAITLIST_PATH, 'utf8');
     submissions = JSON.parse(content);
-    
+
     // Sort by timestamp descending (newest first)
     submissions.sort((a: any, b: any) => {
       return new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime();

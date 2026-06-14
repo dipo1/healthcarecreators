@@ -14,6 +14,7 @@ interface Submission {
   primaryPlatform?: string;
   primaryFollowers?: string;
   primaryHandle?: string;
+  phoneNumber?: string;
   [key: string]: any;
 }
 
@@ -21,11 +22,11 @@ export default function WaitlistClient({ data, adminPassword }: { data: Submissi
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  
+
   // Search and Filter State
   const [search, setSearch] = useState('');
   const [filterType, setFilterType] = useState('all');
-  
+
   // Pagination State
   const [currentPage, setCurrentPage] = useState(1);
   const [limit, setLimit] = useState(10);
@@ -53,13 +54,13 @@ export default function WaitlistClient({ data, adminPassword }: { data: Submissi
 
   const filteredData = useMemo(() => {
     return data.filter((item) => {
-      const matchesSearch = 
+      const matchesSearch =
         `${item.firstName} ${item.lastName}`.toLowerCase().includes(search.toLowerCase()) ||
         item.email.toLowerCase().includes(search.toLowerCase()) ||
         item.role.toLowerCase().includes(search.toLowerCase());
-      
+
       const matchesType = filterType === 'all' || item.type === filterType;
-      
+
       return matchesSearch && matchesType;
     });
   }, [data, search, filterType]);
@@ -76,20 +77,21 @@ export default function WaitlistClient({ data, adminPassword }: { data: Submissi
 
   const handleExport = () => {
     const headers = [
-      'Type', 'First Name', 'Last Name', 'Email', 'Role', 
+      'Type', 'First Name', 'Last Name', 'Email', 'Phone Number', 'Role',
       'Primary Platform', 'Primary Followers', 'Primary Handle',
       'Secondary Platform', 'Secondary Followers', 'Secondary Handle',
       'Reason', 'Qualification', 'Timestamp'
     ];
-    
+
     const csvContent = [
       headers.join(','),
-      ...filteredData.map(item => [
+      ...filteredData.map((item) => [
         item.type,
         `"${item.firstName || ''}"`,
         `"${item.lastName || ''}"`,
         item.email,
-        item.role,
+        `"${item.phoneNumber || ''}"`,
+        `"${item.role + (item.qualification ? ` (${item.qualification})` : '')}"`,
         item.primaryPlatform || '-',
         item.primaryFollowers || '-',
         item.primaryHandle || '-',
@@ -168,7 +170,7 @@ export default function WaitlistClient({ data, adminPassword }: { data: Submissi
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
-          <select 
+          <select
             className="filter-select"
             value={filterType}
             onChange={(e) => setFilterType(e.target.value)}
@@ -207,7 +209,7 @@ export default function WaitlistClient({ data, adminPassword }: { data: Submissi
                   <td data-label="Role">{item.role}</td>
                   <td data-label="Date">{new Date(item.timestamp).toLocaleDateString()}</td>
                   <td style={{ textAlign: 'right' }}>
-                    <button 
+                    <button
                       className="view-btn"
                       onClick={() => setSelectedSubmission(item)}
                     >
@@ -231,16 +233,16 @@ export default function WaitlistClient({ data, adminPassword }: { data: Submissi
         <div className="pagination-info">
           Showing <strong>{(currentPage - 1) * limit + 1}</strong> to <strong>{Math.min(currentPage * limit, filteredData.length)}</strong> of <strong>{filteredData.length}</strong> submissions
         </div>
-        
+
         <div className="pagination-controls">
-          <button 
-            className="page-btn" 
+          <button
+            className="page-btn"
             disabled={currentPage === 1}
             onClick={() => setCurrentPage(prev => prev - 1)}
           >
             Previous
           </button>
-          
+
           {[...Array(totalPages)].map((_, i) => {
             const page = i + 1;
             if (totalPages > 7 && (page > 2 && page < totalPages - 1 && Math.abs(page - currentPage) > 1)) {
@@ -258,15 +260,15 @@ export default function WaitlistClient({ data, adminPassword }: { data: Submissi
             );
           })}
 
-          <button 
-            className="page-btn" 
+          <button
+            className="page-btn"
             disabled={currentPage === totalPages || totalPages === 0}
             onClick={() => setCurrentPage(prev => prev + 1)}
           >
             Next
           </button>
 
-          <select 
+          <select
             className="limit-select"
             value={limit}
             onChange={(e) => setLimit(Number(e.target.value))}
@@ -315,11 +317,11 @@ export default function WaitlistClient({ data, adminPassword }: { data: Submissi
           <h1>Waitlist Submissions Report</h1>
           <p>Generated on {new Date().toLocaleString()}</p>
           <div className="print-stats">
-            Total Submissions: {filteredData.length} | 
+            Total Submissions: {filteredData.length} |
             Filtered Type: {filterType.toUpperCase()}
           </div>
         </div>
-        
+
         <div className="print-list">
           {filteredData.map((item, idx) => (
             <div key={idx} className="print-item">
@@ -332,8 +334,8 @@ export default function WaitlistClient({ data, adminPassword }: { data: Submissi
                   <div key={key} className="print-detail">
                     <span className="print-label">{formatKey(key)}:</span>
                     <span className="print-value">
-                      {key === 'timestamp' 
-                        ? new Date(value).toLocaleString() 
+                      {key === 'timestamp'
+                        ? new Date(value).toLocaleString()
                         : (value?.toString() || '-')}
                     </span>
                   </div>

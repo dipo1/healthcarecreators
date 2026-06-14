@@ -85,15 +85,27 @@ export default function ProfessionalsPage() {
                             </div>
                         </div>
 
-                        <div className="space-y-2">
-                            <label className="text-[14px] font-bold text-[#212236]">Email Address</label>
-                            <input
-                                type="email"
-                                name="email"
-                                required
-                                placeholder="JohnDoe@gmail.com"
-                                className="w-full h-[56px] px-4 rounded-[12px] border border-gray-200 bg-white focus:outline-none focus:border-[#8430E1] transition-colors text-[#212236] placeholder:text-gray-300"
-                            />
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div className="space-y-2">
+                                <label className="text-[14px] font-bold text-[#212236]">Email Address</label>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    required
+                                    placeholder="JohnDoe@gmail.com"
+                                    className="w-full h-[56px] px-4 rounded-[12px] border border-gray-200 bg-white focus:outline-none focus:border-[#8430E1] transition-colors text-[#212236] placeholder:text-gray-300"
+                                />
+                            </div>
+                            <div className="space-y-2">
+                                <label className="text-[14px] font-bold text-[#212236]">Phone Number</label>
+                                <input
+                                    type="tel"
+                                    name="phoneNumber"
+                                    required
+                                    placeholder="+44 7700 900000"
+                                    className="w-full h-[56px] px-4 rounded-[12px] border border-gray-200 bg-white focus:outline-none focus:border-[#8430E1] transition-colors text-[#212236] placeholder:text-gray-300"
+                                />
+                            </div>
                         </div>
 
                         <div className="space-y-2">
@@ -141,6 +153,19 @@ export default function ProfessionalsPage() {
                             </div>
                         )}
 
+                        {role === 'Other' && (
+                            <div className="space-y-2 translate-y-[-0.5rem] animate-fade-in-down">
+                                <label className="text-[14px] font-bold text-[#212236]">What is your qualification?</label>
+                                <input
+                                    type="text"
+                                    name="qualification"
+                                    required
+                                    placeholder="e.g. Health and Wellness Coach"
+                                    className="w-full h-[56px] px-4 rounded-[12px] border border-gray-200 bg-white focus:outline-none focus:border-[#8430E1] transition-colors text-[#212236] placeholder:text-gray-300"
+                                />
+                            </div>
+                        )}
+
                         <button
                             type="submit"
                             disabled={isLoading}
@@ -175,12 +200,12 @@ export default function ProfessionalsPage() {
                 </div>
             </div>
 
-            <AlertModal 
-                isOpen={alertConfig.isOpen} 
-                onClose={() => setAlertConfig(prev => ({ ...prev, isOpen: false }))} 
-                title={alertConfig.title} 
-                message={alertConfig.message} 
-                isError={alertConfig.isError} 
+            <AlertModal
+                isOpen={alertConfig.isOpen}
+                onClose={() => setAlertConfig(prev => ({ ...prev, isOpen: false }))}
+                title={alertConfig.title}
+                message={alertConfig.message}
+                isError={alertConfig.isError}
             />
         </main>
     );
